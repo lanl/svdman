@@ -1,0 +1,247 @@
+<HTML xmlns="http://www.w3.org/TR/REC-html40">
+    <HEAD>
+        <TITLE>
+PACKAGE: SVDMAN</TITLE>
+    </HEAD>
+    <BODY>
+        <hr>SVDMAN -- 
+
+
+Singular Value Decomposition Microarray Analysis
+
+<hr>
+        <p>
+        </p>
+Authors:
+<ul>
+            <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+            <br>
+            <i>
+
+Patricia Dyck, Los Alamos National Laboratory/tdyck@lanl.gov
+
+</i>
+            <br>
+        </ul>
+        <p>
+        </p>
+Version: 0.1
+Date: 8/15/2000<br>
+        <p>
+        </p>
+<ul>
+
+Los Alamos in-house version
+
+</ul>
+
+Version: 0.9b
+Date: 2/9/2001<br>
+        <p>
+        </p>
+<ul>
+
+Beta production release
+
+</ul>
+<ul>
+
+Make the subroutines more robust and introduce XML style documentation for
+the source code.
+
+</ul>
+<p>
+        </p>
+Copyright:
+<p>
+        </p>
+        <ul>
+
+Copyright (C) 2000,2001 The Regents of the University of California.  SVDMAN (svdman.cc, svdtool.cc, svd.h) was developed by Michael Wall and Patricia Dyck at Los Alamos National Laboratory under the auspices of the Department of Energy, and under contract to the University of California.
+
+</ul>
+        <p>
+        </p>
+License:
+<p>
+        </p>
+        <ul>
+            <A HREF="license.html">
+License file
+</A>
+            <br>
+            <p>
+            </p>
+
+The parts of the SVDMAN software package developed at Los Alamos National Laboratory (svdman.cc, svdtool.cc, svd.h) are freely distributable under the terms of the license.  Please read the license file linked to this section of the documentation for a description of the license.  This license allows for both commercial and non-commercial use and distribution.  Please contact svdman@lanl.gov for all questions regarding the software.
+
+<p>
+            </p>
+            <p>
+            </p>
+
+The parts of the SVDMAN software package not developed at Los Alamos National Laboratory (CLAPACK and LIBF77 components) are distributed under different terms.  LIBF77 may be freely distributed, but the corresponding copyright message must be distributed with the package (see the libf77.a documentation).  The following message concerning licensing of LAPACK is in the LAPACK FAQ at www.netlib.org:
+
+<p>
+            </p>
+            <p>
+            </p>
+
+1.2) Are there legal restrictions on the use of LAPACK software?
+
+LAPACK is a freely-available software package. It is available from netlib via anonymous ftp and the World Wide Web. Thus, it can be
+included in commercial software packages (and has been). We only ask that proper credit be given to the authors.
+
+Like all software, it is copyrighted. It is not trademarked, but we do ask the following:
+
+If you modify the source for these routines we ask that you change the name of the routine and comment the changes made to the original.
+
+We will gladly answer any questions regarding the software. If a modification is done, however, it is the responsibility of the person who
+modified the routine to provide support.
+
+<p>
+            </p>
+            <p>
+            </p>
+
+We could find no clear reference to the authors of LAPACK.  For the time being, in order to credit the authors, we refer to the netlib site: www.netlib.org/lapack/index.html. Follow the links to the LAPACK manual for some authorship creadits.
+
+<p>
+            </p>
+        </ul>
+        <p>
+        </p>
+References:
+<p>
+        </p>
+        <ul>
+            <A HREF="http://bioinformatics.oupjournals.org/cgi/content/abstract/17/6/566">
+
+ME Wall, PA Dyck, TS Brettin.  SVDMAN: singular value decomposition of microarray data.  2001.  Bioinformatics 17:566-568.
+
+</A>
+            <br>
+        </ul>
+        <p>
+        </p>
+Aims:
+<ul>
+o 
+
+Perform svd on a matrix of gene expression data
+
+<br>
+o 
+
+Identify gene groupings for each of the modes of the svd
+
+<br>
+o 
+
+Check for self-consistency of the svd model 
+
+<br>
+o 
+
+Output results in a format easily imported into other software applications.
+
+<br>
+o 
+
+Design for use as a modular part of a larger system.
+
+<br>
+        </ul>
+
+Requirements:
+<ul>
+o 
+
+Tab-delimited ASCII data file, with labels across the top and at the left.
+The first element of the file is blank (i.e. the first character is a tab).
+
+<br>
+        </ul>
+
+Installation:
+<ul>
+<ul>
+
+Download the distribution.
+
+</ul>
+<ul>
+
+Unpack the distribution via: gzip -dc svdman.tgz | tar xf -
+
+</ul>
+<ul>
+
+This will create a directory svd/.  Change directory to svd/src/
+
+</ul>
+<ul>
+
+Build the binaries by typing "make".
+
+</ul>
+<ul>
+
+Test svdman using data provided in the tst/ directory.  Use the shell script svdman_test.csh.
+
+</ul>
+<ul>
+
+See svdman.cc documentation for a description of how to use svdman.
+
+</ul>
+</ul>
+
+Parts:
+<ul>
+            <A HREF="../src/svdman.cc">svdman.cc</A>
+
+(
+<A HREF="svdman.cc.html">
+documentation
+</A>)
+<br>
+            <A HREF="../src/svdtool.cc">svdtool.cc</A>
+
+(
+<A HREF="svdtool.cc.html">
+documentation
+</A>)
+<br>
+            <A HREF="../src/svd.h">svd.h</A>
+
+(
+<A HREF="svd.h.html">
+documentation
+</A>)
+<br>libclasvd.a
+(
+<A HREF="libclasvd.a.html">
+documentation
+</A>)
+<br>libF77.a
+(
+<A HREF="libF77.a.html">
+documentation
+</A>)
+<br>
+        </ul>
+
+Bugs:
+<ul>
+        </ul>
+
+Feedback and Bug Reports:
+<ul>Please email feedback and bug reports to: <A HREF="mailto:svdman@lanl.gov">svdman@lanl.gov</A>
+        </ul>
+    </BODY>
+</HTML>

@@ -1,0 +1,6 @@
+VPATH=.:..
+CC=gcc
+CFLAGS= -O2 -I../F2CLIBS
+AR=ar
+ARFLAGS=cr
+SHELL=/bin/csh

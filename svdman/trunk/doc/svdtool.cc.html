@@ -1,0 +1,2032 @@
+<HTML xmlns="http://www.w3.org/TR/REC-html40">
+    <HEAD>
+        <TITLE>
+COMPONENT: SVDTOOL.CC</TITLE>
+    </HEAD>
+    <BODY>
+        <hr>SVDTOOL.CC<hr>
+        <p>
+        </p>
+Source:
+<ul>
+            <A HREF="
+../src/svdtool.cc">svdtool.cc</A>
+        </ul>
+        <p>
+        </p>
+Target:
+<ul>svdtool.o</ul>
+        <p>
+        </p>
+Type:
+<ul>library</ul>
+        <p>
+        </p>
+Version: 0.1
+Date: 8/15/2000<br>
+<p>
+        </p>
+        <ul>
+
+Los Alamos in-house version
+
+</ul>
+
+Version: 0.9b
+Date: 2/9/2001<br>
+<p>
+        </p>
+        <ul>
+
+Beta production release
+
+</ul>
+<p>
+        </p>
+        <ul>
+
+Make the subroutines more robust and introduce XML style documentation for
+the source code.
+
+</ul>
+<p>
+        </p>
+Packages:
+<ul>svdman (
+<A HREF="svdman.html">
+documentation
+</A>
+)
+<br>
+            <p>
+            </p>
+            <ul>
+Parts:
+<p>
+                </p>
+                <ul>
+                    <A HREF="../src/svdman.cc">svdman.cc</A>
+
+(
+<A HREF="svdman.cc.html">
+documentation
+</A>)
+<br>
+                    <A HREF="../src/svdtool.cc">svdtool.cc</A>
+
+(
+<A HREF="svdtool.cc.html">
+documentation
+</A>)
+<br>
+                    <A HREF="../src/svd.h">svd.h</A>
+
+(
+<A HREF="svd.h.html">
+documentation
+</A>)
+<br>libclasvd.a
+(
+<A HREF="libclasvd.a.html">
+documentation
+</A>)
+<br>libF77.a
+(
+<A HREF="libF77.a.html">
+documentation
+</A>)
+<br>
+                </ul>
+                <p>
+                </p>
+            </ul>
+        </ul>
+        <p>
+        </p>
+Includes:
+<ul>
+            <A HREF="
+../src/svd.h">svd.h</A>
+            <br>
+        </ul>
+
+Blocks:
+<ul>
+            <p>
+            </p>WriteRawData()<p>
+            </p>
+            <ul> 
+Kind:
+<p>
+                </p>
+                <ul>method</ul>
+                <p>
+                </p>
+Authors:
+<p>
+                </p>
+                <ul>
+                    <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+                    <br>
+                </ul>
+                <p>
+                </p>
+Comments:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+
+Write some matrix data to an output file
+
+</ul>
+                <p>
+                </p>
+Usage:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Inputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Outputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Returns:
+<p>
+                </p>
+                <p>
+                </p>
+Parameters:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>string ofname; // 
+
+Name of output file
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>vector&lt;double&gt; dat; // 
+
+Data matrix
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>int numcols; //  
+
+Number of columns
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>vector&lt;string&gt; row_labels; // 
+
+Row labels
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>vector&lt;string&gt; col_labels; // 
+
+Column labels
+
+<br>
+                </ul>
+                <p>
+                </p>
+            </ul>
+            <p>
+            </p>splint()<p>
+            </p>
+            <ul> 
+Kind:
+<p>
+                </p>
+                <ul>method</ul>
+                <p>
+                </p>
+Authors:
+<p>
+                </p>
+                <ul>
+                    <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+                    <br>
+                    <i>
+
+Numerical Recipes in C
+
+</i>
+                    <br>
+                </ul>
+                <p>
+                </p>
+Comments:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+
+Cubic spline interpolation.  Modified from Numerical Recipes in C.
+
+</ul>
+                <p>
+                </p>
+Usage:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Inputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Outputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Returns:
+<p>
+                </p>
+                <p>
+                </p>
+Parameters:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>double* xa; // 
+
+Pointer to ordinate values for interpolation
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>double* ya; // 
+
+Pointer to abscissa values for interpolation
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>double* y2a; // 
+
+Pointer to spline coefficients
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>int n; // 
+
+Number of data points in xa[],ya[],y2a[]
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>double x; // 
+
+X (ordinate) value for interpolation
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>double&amp; y; // 
+
+Reference to interpolated value
+
+<br>
+                </ul>
+                <p>
+                </p>
+            </ul>
+            <p>
+            </p>spline()<p>
+            </p>
+            <ul> 
+Kind:
+<p>
+                </p>
+                <ul>method</ul>
+                <p>
+                </p>
+Authors:
+<p>
+                </p>
+                <ul>
+                    <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+                    <br>
+                    <i>
+
+Numerical Recipes in C
+
+</i>
+                    <br>
+                </ul>
+                <p>
+                </p>
+Comments:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+
+Cubic spline coefficients calculation.  Modified from Numerical Recipes in C
+
+</ul>
+                <p>
+                </p>
+Usage:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Inputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Outputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Returns:
+<p>
+                </p>
+                <p>
+                </p>
+Parameters:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>double* x; // 
+
+Pointer to ordinate values
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>double* y; // 
+
+Pointer to abscissa values
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>int n; // 
+
+Number of elements in x[] and y[]
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>double yp1; // 
+
+1st derivative constraint at low x.  If greater than 1.e30, it
+s a natural spline with 2d derivative = 0
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>double ypn; // 
+
+1st derivative constraint at high x.  If greater than 1.e30, it
+s a natural spline with 2d derivative = 0
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>double* y2; // 
+
+Pointer to array of output spline coefficients
+
+<br>
+                </ul>
+                <p>
+                </p>
+            </ul>
+            <p>
+            </p>Max()<p>
+            </p>
+            <ul> 
+Kind:
+<p>
+                </p>
+                <ul>method</ul>
+                <p>
+                </p>
+Authors:
+<p>
+                </p>
+                <ul>
+                    <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+                    <br>
+                </ul>
+                <p>
+                </p>
+Comments:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+
+Return the greater of two integers
+
+</ul>
+                <p>
+                </p>
+Usage:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Inputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Outputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Returns:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+Type: int<p>
+                    </p>
+                    <ul>
+
+The greater of the input values
+
+</ul>
+                </ul>
+                <p>
+                </p>
+Parameters:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>int m; // 
+
+Value #1
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>int n; // 
+
+Value #2
+
+<br>
+                </ul>
+                <p>
+                </p>
+            </ul>
+            <p>
+            </p>Min()<p>
+            </p>
+            <ul> 
+Kind:
+<p>
+                </p>
+                <ul>method</ul>
+                <p>
+                </p>
+Authors:
+<p>
+                </p>
+                <ul>
+                    <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+                    <br>
+                </ul>
+                <p>
+                </p>
+Comments:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+
+Return the lesser of two integers
+
+</ul>
+                <p>
+                </p>
+Usage:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Inputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Outputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Returns:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+Type: int<p>
+                    </p>
+                    <ul>
+
+The lesser of the input values
+
+</ul>
+                </ul>
+                <p>
+                </p>
+Parameters:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>int m; // 
+
+Value #1
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>int n; // 
+
+Value #2
+
+<br>
+                </ul>
+                <p>
+                </p>
+            </ul>
+            <p>
+            </p>SplitLine()<p>
+            </p>
+            <ul> 
+Kind:
+<p>
+                </p>
+                <ul>method</ul>
+                <p>
+                </p>
+Authors:
+<p>
+                </p>
+                <ul>
+                    <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+                    <br>
+                </ul>
+                <p>
+                </p>
+Comments:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+
+Split a string at the positions of an input character, ala Perl split().
+Return the number of break points found.
+
+</ul>
+                <p>
+                </p>
+Usage:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Inputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Outputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Returns:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+Type: int<p>
+                    </p>
+                    <ul>
+
+The number of break points (i.e. characters) found in the string.
+
+</ul>
+                </ul>
+                <p>
+                </p>
+Parameters:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>string strline; // 
+
+The input string to be fragmented.
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>int start; // 
+
+The start position for the search.  The first position = 0.
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>int nwords; // 
+
+The maximum number of words to extract.
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>char ch; // 
+
+The character that defines the break points.
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>vector&lt;string&gt;&amp; words; // 
+
+The output array of words from the split.
+
+<br>
+                </ul>
+                <p>
+                </p>
+            </ul>
+            <p>
+            </p>Data::Data(string)<p>
+            </p>
+            <ul> 
+Kind:
+<p>
+                </p>
+                <ul>constructor</ul>
+                <p>
+                </p>
+Authors:
+<p>
+                </p>
+                <ul>
+                    <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+                    <br>
+                    <i>
+
+Patricia Dyck, Los Alamos National Laboratory/tdyck@lanl.gov
+
+</i>
+                    <br>
+                </ul>
+                <p>
+                </p>
+Comments:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+
+Constructs an instance of the data class, initializing the matrix using data from the input file named ifname.
+
+</ul>
+                <p>
+                </p>
+Usage:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Inputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Outputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Returns:
+<p>
+                </p>
+                <p>
+                </p>
+Parameters:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>string ifname; // 
+
+The file name to be read for initializing Data()
+
+<br>
+                </ul>
+                <p>
+                </p>
+            </ul>
+            <p>
+            </p>Data::Data(int, Data&amp;)<p>
+            </p>
+            <ul> 
+Kind:
+<p>
+                </p>
+                <ul>constructor</ul>
+                <p>
+                </p>
+Authors:
+<p>
+                </p>
+                <ul>
+                    <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+                    <br>
+                    <i>
+
+Patricia Dyck, Los Alamos National Laboratory/tdyck@lanl.gov
+
+</i>
+                    <br>
+                </ul>
+                <p>
+                </p>
+Comments:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+
+Construct an instance of the class Data() based on an existing class.  The new instance has one column missing from the data matrix, defined by an input index.
+
+</ul>
+                <p>
+                </p>
+Usage:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Inputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Outputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Returns:
+<p>
+                </p>
+                <p>
+                </p>
+Parameters:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>int index; // 
+
+The column number to be deleted from the source matrix.
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>Data&amp; d; // 
+
+The source class to be read in creating the new instance.
+
+<br>
+                </ul>
+                <p>
+                </p>
+            </ul>
+            <p>
+            </p>Data::Data(Data&amp;)<p>
+            </p>
+            <ul> 
+Kind:
+<p>
+                </p>
+                <ul>constructor</ul>
+                <p>
+                </p>
+Authors:
+<p>
+                </p>
+                <ul>
+                    <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+                    <br>
+                    <i>
+
+Patricia Dyck, Los Alamos National Laboratory/tdyck@lanl.gov
+
+</i>
+                    <br>
+                </ul>
+                <p>
+                </p>
+Comments:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+
+Copy constructor for Data()
+Copies the matrix from the source.
+
+</ul>
+                <p>
+                </p>
+Usage:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Inputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Outputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Returns:
+<p>
+                </p>
+                <p>
+                </p>
+Parameters:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>Data&amp; d; // <br>
+                </ul>
+                <p>
+                </p>
+            </ul>
+            <p>
+            </p>Data::NumCols()<p>
+            </p>
+            <ul> 
+Kind:
+<p>
+                </p>
+                <ul>method</ul>
+                <p>
+                </p>
+Authors:
+<p>
+                </p>
+                <ul>
+                    <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+                    <br>
+                </ul>
+                <p>
+                </p>
+Comments:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+
+Return the number of columns in the data matrix
+
+</ul>
+                <p>
+                </p>
+Usage:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Inputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Outputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Returns:
+<p>
+                </p>
+                <p>
+                </p>
+Parameters:
+<p>
+                </p>
+                <p>
+                </p>
+            </ul>
+            <p>
+            </p>Data::NumRows()<p>
+            </p>
+            <ul> 
+Kind:
+<p>
+                </p>
+                <ul>method</ul>
+                <p>
+                </p>
+Authors:
+<p>
+                </p>
+                <ul>
+                    <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+                    <br>
+                </ul>
+                <p>
+                </p>
+Comments:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+
+Return the number of rows in the data matrix
+
+</ul>
+                <p>
+                </p>
+Usage:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Inputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Outputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Returns:
+<p>
+                </p>
+                <p>
+                </p>
+Parameters:
+<p>
+                </p>
+                <p>
+                </p>
+            </ul>
+            <p>
+            </p>Data::WriteCorr(string, vector&lt;double&gt;)<p>
+            </p>
+            <ul> 
+Kind:
+<p>
+                </p>
+                <ul>method</ul>
+                <p>
+                </p>
+Authors:
+<p>
+                </p>
+                <ul>
+                    <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+                    <br>
+                </ul>
+                <p>
+                </p>
+Comments:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+
+Output the correlations from the SVD evaluation to a file.
+
+</ul>
+                <p>
+                </p>
+Usage:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Inputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Outputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Returns:
+<p>
+                </p>
+                <p>
+                </p>
+Parameters:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>string out_base; // 
+
+Output filename base
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>vector&lt;double&gt; correlations; // 
+
+Vector array of calculated correlation values.
+
+<br>
+                </ul>
+                <p>
+                </p>
+            </ul>
+            <p>
+            </p>Data::WriteGroups(string, double)<p>
+            </p>
+            <ul> 
+Kind:
+<p>
+                </p>
+                <ul>method</ul>
+                <p>
+                </p>
+Authors:
+<p>
+                </p>
+                <ul>
+                    <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+                    <br>
+                </ul>
+                <p>
+                </p>
+Comments:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+
+Determine the SVD groups and write them to an output file.
+
+</ul>
+                <p>
+                </p>
+Usage:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Inputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Outputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Returns:
+<p>
+                </p>
+                <p>
+                </p>
+Parameters:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>string out_base; // 
+
+Output filename.
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>double thresh; // 
+
+Scale for the threshold value for inclusion within a group.
+
+<br>
+                </ul>
+                <p>
+                </p>
+            </ul>
+            <p>
+            </p>Data::SubMeanRow()<p>
+            </p>
+            <ul> 
+Kind:
+<p>
+                </p>
+                <ul>method</ul>
+                <p>
+                </p>
+Authors:
+<p>
+                </p>
+                <ul>
+                    <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+                    <br>
+                </ul>
+                <p>
+                </p>
+Comments:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+
+Subtract the mean row value from each row of the data matrix.
+
+</ul>
+                <p>
+                </p>
+Usage:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Inputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Outputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Returns:
+<p>
+                </p>
+                <p>
+                </p>
+Parameters:
+<p>
+                </p>
+                <p>
+                </p>
+            </ul>
+            <p>
+            </p>Data::SVD()<p>
+            </p>
+            <ul> 
+Kind:
+<p>
+                </p>
+                <ul>method</ul>
+                <p>
+                </p>
+Authors:
+<p>
+                </p>
+                <ul>
+                    <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+                    <br>
+                    <i>
+
+Patricia Dyck, Los Alamos National Laboratory/tdyck@lanl.gov
+
+</i>
+                    <br>
+                </ul>
+                <p>
+                </p>
+Comments:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+
+Calculate the SVD of the data matrix, placing results in U, VT, S and B.
+Also generate labels for the SVD modes/
+
+</ul>
+                <p>
+                </p>
+Usage:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Inputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Outputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Returns:
+<p>
+                </p>
+                <p>
+                </p>
+Parameters:
+<p>
+                </p>
+                <p>
+                </p>
+            </ul>
+            <p>
+            </p>Data::MinusSVD()<p>
+            </p>
+            <ul> 
+Kind:
+<p>
+                </p>
+                <ul>method</ul>
+                <p>
+                </p>
+Authors:
+<p>
+                </p>
+                <ul>
+                    <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+                    <br>
+                </ul>
+                <p>
+                </p>
+Comments:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+
+Invert the signs of U, VT and B.
+
+</ul>
+                <p>
+                </p>
+Usage:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Inputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Outputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Returns:
+<p>
+                </p>
+                <p>
+                </p>
+Parameters:
+<p>
+                </p>
+                <p>
+                </p>
+            </ul>
+            <p>
+            </p>Data::JacknifeData(double, vector&lt;double&gt;&amp;)<p>
+            </p>
+            <ul> 
+Kind:
+<p>
+                </p>
+                <ul>method</ul>
+                <p>
+                </p>
+Authors:
+<p>
+                </p>
+                <ul>
+                    <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+                    <br>
+                    <i>
+
+Patricia Dyck, Los Alamos National Laboratory/tdyck@lanl.gov
+
+</i>
+                    <br>
+                </ul>
+                <p>
+                </p>
+Comments:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+
+Perform evaluation on the current data column.
+This method is called within the reduced matrix class.
+
+</ul>
+                <p>
+                </p>
+Usage:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Inputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Outputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Returns:
+<p>
+                </p>
+                <p>
+                </p>
+Parameters:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>double xval; // 
+
+The ordinate value for interpolation of the missing column.
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>vector&lt;double&gt; data_col; // 
+
+The original column of data.
+
+<br>
+                </ul>
+                <p>
+                </p>
+            </ul>
+            <p>
+            </p>Data::EvaluateSVD(vector&lt;double&gt;&amp;)<p>
+            </p>
+            <ul> 
+Kind:
+<p>
+                </p>
+                <ul>method</ul>
+                <p>
+                </p>
+Authors:
+<p>
+                </p>
+                <ul>
+                    <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+                    <br>
+                    <i>
+
+Patricia Dyck, Los Alamos National Laboratory/tdyck@lanl.gov
+
+</i>
+                    <br>
+                </ul>
+                <p>
+                </p>
+Comments:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+
+Perform evaluation of the SVD using the jacknife method.
+
+</ul>
+                <p>
+                </p>
+Usage:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Inputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Outputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Returns:
+<p>
+                </p>
+                <p>
+                </p>
+Parameters:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>vector&lt;double&gt; correlations; // 
+
+Output list of Pearson correlation values from the evaluation.
+
+<br>
+                </ul>
+                <p>
+                </p>
+            </ul>
+            <p>
+            </p>Data::CalcColData(vector&lt;double&gt;&amp;,vector&lt;double&gt;&amp;)<p>
+            </p>
+            <ul> 
+Kind:
+<p>
+                </p>
+                <ul>method</ul>
+                <p>
+                </p>
+Authors:
+<p>
+                </p>
+                <ul>
+                    <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+                    <br>
+                    <i>
+
+Patricia Dyck, Los Alamos National Laboratory/tdyck@lanl.gov
+
+</i>
+                    <br>
+                </ul>
+                <p>
+                </p>
+Comments:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+
+Calculate the "missing" data column by matrix multiplication.
+
+</ul>
+                <p>
+                </p>
+Usage:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Inputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Outputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Returns:
+<p>
+                </p>
+                <p>
+                </p>
+Parameters:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>vector&lt;double&gt;&amp; calcValues; // 
+
+The calculated interpolated column from the SVD.
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>vector&lt;double&gt;&amp; data_col; // 
+
+The output reconstructed data column.
+
+<br>
+                </ul>
+                <p>
+                </p>
+            </ul>
+            <p>
+            </p>InterpolateSVD(double,vector&lt;double&gt;&amp;)<p>
+            </p>
+            <ul> 
+Kind:
+<p>
+                </p>
+                <ul>method</ul>
+                <p>
+                </p>
+Authors:
+<p>
+                </p>
+                <ul>
+                    <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+                    <br>
+                    <i>
+
+Patricia Dyck, Los Alamos National Laboratory/tdyck@lanl.gov
+
+</i>
+                    <br>
+                </ul>
+                <p>
+                </p>
+Comments:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+
+Interpolation of the missing column of the SVD.
+
+</ul>
+                <p>
+                </p>
+Usage:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Inputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Outputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Returns:
+<p>
+                </p>
+                <p>
+                </p>
+Parameters:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>double xval; // 
+
+The ordinate value for interpolation (missing assay label).
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>vector&lt;double&gt;&amp; newValues; // 
+
+Vector of values for the elements of the interpolated column.
+
+<br>
+                </ul>
+                <p>
+                </p>
+            </ul>
+            <p>
+            </p>Data::CorrColData(int, vector&lt;double&gt;&amp;,vector&lt;double&gt;&amp;)<p>
+            </p>
+            <ul> 
+Kind:
+<p>
+                </p>
+                <ul>method</ul>
+                <p>
+                </p>
+Authors:
+<p>
+                </p>
+                <ul>
+                    <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+                    <br>
+                    <i>
+
+Patricia Dyck, Los Alamos National Laboratory/tdyck@lanl.gov
+
+</i>
+                    <br>
+                </ul>
+                <p>
+                </p>
+Comments:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+
+Calculate the Pearson correlation between the reconstructed column and the original data column
+
+</ul>
+                <p>
+                </p>
+Usage:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Inputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Outputs:
+<p>
+                </p>
+                <ul>
+                </ul>
+                <p>
+                </p>
+Returns:
+<p>
+                </p>
+                <p>
+                </p>
+Parameters:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>int index; // 
+
+Column number in the original data matrix.
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>vector&lt;double&gt;&amp; data_col; // 
+
+Reconstructed data column
+
+<br>
+                </ul>
+                <p>
+                </p>
+                <ul>vector&lt;double&gt;&amp; correlations; // 
+
+List of calculated correlations to which the current is added
+
+<br>
+                </ul>
+                <p>
+                </p>
+            </ul>
+        </ul>
+
+Build:
+<ul>
+            <p>
+            </p>
+Dependencies:
+<p>
+            </p>
+            <ul>svd.h<br>
+            </ul>
+            <p>
+            </p>
+Compile:
+<p>
+            </p>
+            <ul>
+
+
+
+g++ -O2 -I./F2CLIBS -c svdtool.cc
+
+
+ 
+
+
+
+
+
+</ul>
+            <p>
+            </p>
+Platforms:
+<p>
+            </p>
+            <ul>RedHatLinux version 7.0<br>
+                <p>
+                </p>
+Compilers:
+<p>
+                </p>
+                <ul>gcc version 2.96<br>
+                </ul>
+                <p>
+                </p>RedHatLinux version 6.1<br>
+                <p>
+                </p>
+Compilers:
+<p>
+                </p>
+                <ul>egcs version 1.1.2<br>
+                </ul>
+                <p>
+                </p>
+            </ul>
+        </ul>
+    </BODY>
+</HTML>

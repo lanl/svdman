@@ -1,0 +1,578 @@
+<HTML xmlns="http://www.w3.org/TR/REC-html40">
+    <HEAD>
+        <TITLE>
+COMPONENT: SVDMAN.CC</TITLE>
+    </HEAD>
+    <BODY>
+        <hr>SVDMAN.CC<hr>
+        <p>
+        </p>
+Source:
+<ul>
+            <A HREF="
+../src/svdman.cc">svdman.cc</A>
+        </ul>
+        <p>
+        </p>
+Target:
+<ul>svdman</ul>
+        <p>
+        </p>
+Type:
+<ul>executable</ul>
+        <p>
+        </p>
+Version: 0.1
+Date: 8/15/2000<br>
+<p>
+        </p>
+        <ul>
+
+Los Alamos in-house version
+
+</ul>
+
+Version: 0.9b
+Date: 2/9/2001<br>
+<p>
+        </p>
+        <ul>
+
+Beta production release
+
+</ul>
+<p>
+        </p>
+        <ul>
+
+Make the subroutines more robust and introduce XML style documentation for
+the source code.
+
+</ul>
+<p>
+        </p>
+Packages:
+<ul>svdman (
+<A HREF="svdman.html">
+documentation
+</A>
+)
+<br>
+            <p>
+            </p>
+            <ul>
+Parts:
+<p>
+                </p>
+                <ul>
+                    <A HREF="../src/svdman.cc">svdman.cc</A>
+
+(
+<A HREF="svdman.cc.html">
+documentation
+</A>)
+<br>
+                    <A HREF="../src/svdtool.cc">svdtool.cc</A>
+
+(
+<A HREF="svdtool.cc.html">
+documentation
+</A>)
+<br>
+                    <A HREF="../src/svd.h">svd.h</A>
+
+(
+<A HREF="svd.h.html">
+documentation
+</A>)
+<br>libclasvd.a
+(
+<A HREF="libclasvd.a.html">
+documentation
+</A>)
+<br>libF77.a
+(
+<A HREF="libF77.a.html">
+documentation
+</A>)
+<br>
+                </ul>
+                <p>
+                </p>
+            </ul>
+        </ul>
+        <p>
+        </p>
+Includes:
+<ul>
+            <A HREF="
+../src/svd.h">svd.h</A>
+            <br>
+        </ul>
+
+Blocks:
+<ul>
+            <p>
+            </p>main()<p>
+            </p>
+            <ul> 
+Kind:
+<p>
+                </p>
+                <ul>main</ul>
+                <p>
+                </p>
+Authors:
+<p>
+                </p>
+                <ul>
+                    <i>
+
+Michael Wall, Los Alamos National Laboratory/mewall@lanl.gov
+
+</i>
+                    <br>
+                    <i>
+
+Patricia Dyck, Los Alamos National Laboratory/tdyck@lanl.gov
+
+</i>
+                    <br>
+                </ul>
+                <p>
+                </p>
+Comments:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>
+
+This program takes as input a file containing a matrix of gene
+expression values for multiple experiments obtained from, e.g.,
+microarrays.  It performs singular value decomposition (SVD) upon
+the matrix and can write the SVD as separate files U, VT, S and
+B=S.VT.  A threshold is applied to columns of U in order to
+identify gene groupings for each column, or mode, and the
+groupings are output as the row label along with the relative
+sign +/- indicating the direction of response of the gene within
+the group.
+
+</ul>
+                <p>
+                </p>
+                <ul>
+
+The analysis can be evaluated by systematically removing a column
+from the data array, calculating the SVD, and interpolating B to
+estimate the values for the missing assay. A version of the
+missing column in the original data matrix is calculated using
+these interpolated values, then the calculated column is compared
+with the column of missing data using a Pearson correlation.
+this matrix with the original values as a metric of the success
+of the program.  Each of the columns but the first and last is
+evaluated in this way, and the results are output in a file.
+
+</ul>
+                <p>
+                </p>
+Usage:
+<p>
+                </p>
+                <ul>
+                    <p>
+                    </p>
+Execution:
+<p>
+                    </p>
+                    <ul>
+
+svdman -i [ifname] { -options {[args]} }
+
+</ul>
+                    <p>
+                    </p>
+Commands:
+<p>
+                    </p>
+                    <ul>
+Required:
+<p>
+                        </p>
+                        <ul>
+-i
+[string<xml:text>
+                            </xml:text>ifname]
+<p>
+                            </p>
+                            <ul>ifname:
+
+input file name
+
+<p>
+                                </p>
+                            </ul>
+                        </ul>
+
+
+
+
+Options:
+<p>
+                        </p>
+                        <ul>
+-o
+[string<xml:text>
+                            </xml:text>ofbase]
+<p>
+                            </p>
+                            <ul>ofbase:
+
+output filename base
+
+<p>
+                                </p>
+                            </ul>
+-thresh
+[double<xml:text>
+                            </xml:text>threshold]
+<p>
+                            </p>
+                            <ul>threshold:
+
+A scale for the threshold value beneath which an ORF does not belong to an eigenvector
+
+<p>
+                                </p>
+                            </ul>
+-writesvd:
+
+flag to write SVD components U, S, VT and B to files.
+
+<p>
+                            </p>
+                            <ul>
+                            </ul>
+-minus:
+
+flag to invert the sign of the matrix elements for U, VT and B
+
+<p>
+                            </p>
+                            <ul>
+                            </ul>
+-submean:
+
+flag to subtract the row mean value from each row
+
+<p>
+                            </p>
+                            <ul>
+                            </ul>
+-evaluate:
+
+flag to check for self-consistency using an interpolation procedure
+
+<p>
+                            </p>
+                            <ul>
+                            </ul>
+                        </ul>
+                    </ul>
+                    <p>
+                    </p>
+                </ul>
+                <p>
+                </p>
+Inputs:
+<p>
+                </p>
+                <ul>
+                    <p>
+                    </p>
+Source:
+<p>
+                    </p>
+                    <ul>file<p>
+                        </p>
+Format:
+<p>
+                        </p>
+                        <ul>tab-delimited</ul>
+                        <p>
+                        </p>
+Comments:
+<p>
+                        </p>
+<p>
+                        </p>
+                        <ul>
+
+Microarray data file. 
+
+</ul>
+<p>
+                        </p>
+                        <ul>
+
+Tab-delimited ASCII file.  Labels at the top and left.  First element is blank.
+
+</ul>
+<p>
+                        </p>
+                    </ul>
+                </ul>
+                <p>
+                </p>
+Outputs:
+<p>
+                </p>
+                <ul>
+                    <p>
+                    </p>
+Destination:
+<p>
+                    </p>
+                    <ul>file<p>
+                        </p>
+Name:
+<p>
+                        </p>
+                        <ul>[base]_groups.dat</ul>
+                        <p>
+                        </p>
+Format:
+<p>
+                        </p>
+                        <ul>tab-delimited</ul>
+                        <p>
+                        </p>
+Comments:
+<p>
+                        </p>
+<p>
+                        </p>
+                        <ul>
+
+SVD groups
+
+</ul>
+<p>
+                        </p>
+                    </ul>
+                    <p>
+                    </p>
+Destination:
+<p>
+                    </p>
+                    <ul>file<p>
+                        </p>
+Name:
+<p>
+                        </p>
+                        <ul>[base]_U.dat</ul>
+                        <p>
+                        </p>
+Format:
+<p>
+                        </p>
+                        <ul>tab-delimited</ul>
+                        <p>
+                        </p>
+Comments:
+<p>
+                        </p>
+<p>
+                        </p>
+                        <ul>
+
+SVD matrix U (Columns are left singular vectors)
+
+</ul>
+<p>
+                        </p>
+                    </ul>
+                    <p>
+                    </p>
+Destination:
+<p>
+                    </p>
+                    <ul>file<p>
+                        </p>
+Name:
+<p>
+                        </p>
+                        <ul>[base]_VT.dat</ul>
+                        <p>
+                        </p>
+Format:
+<p>
+                        </p>
+                        <ul>tab-delimited</ul>
+                        <p>
+                        </p>
+Comments:
+<p>
+                        </p>
+<p>
+                        </p>
+                        <ul>
+
+SVD matrix VT (Rows are right singular vectors)
+
+</ul>
+<p>
+                        </p>
+                    </ul>
+                    <p>
+                    </p>
+Destination:
+<p>
+                    </p>
+                    <ul>file<p>
+                        </p>
+Name:
+<p>
+                        </p>
+                        <ul>[base]_S.dat</ul>
+                        <p>
+                        </p>
+Format:
+<p>
+                        </p>
+                        <ul>tab-delimited</ul>
+                        <p>
+                        </p>
+Comments:
+<p>
+                        </p>
+<p>
+                        </p>
+                        <ul>
+
+Table of singular values
+
+</ul>
+<p>
+                        </p>
+                    </ul>
+                    <p>
+                    </p>
+Destination:
+<p>
+                    </p>
+                    <ul>file<p>
+                        </p>
+Name:
+<p>
+                        </p>
+                        <ul>[base]_B.dat</ul>
+                        <p>
+                        </p>
+Format:
+<p>
+                        </p>
+                        <ul>tab-delimited</ul>
+                        <p>
+                        </p>
+Comments:
+<p>
+                        </p>
+<p>
+                        </p>
+                        <ul>
+
+SVD matrix B=S.VT
+
+</ul>
+<p>
+                        </p>
+                    </ul>
+                </ul>
+                <p>
+                </p>
+Returns:
+<p>
+                </p>
+                <p>
+                </p>
+Parameters:
+<p>
+                </p>
+                <p>
+                </p>
+                <ul>int argc; // Number of command-line arguments<br>
+                </ul>
+                <p>
+                </p>
+                <ul>char** argv; // Command-line arguments<br>
+                </ul>
+                <p>
+                </p>
+            </ul>
+        </ul>
+
+Build:
+<ul>
+            <p>
+            </p>
+Dependencies:
+<p>
+            </p>
+            <ul>svdtool.o<br>libclasvd.a<br>libF77.a<br>svd.h<br>
+            </ul>
+            <p>
+            </p>
+Compile:
+<p>
+            </p>
+            <ul>
+
+
+
+
+
+
+g++ -O2 -I./F2CLIBS -c svdman.cc
+
+
+
+
+g++ -O2 -I./F2CLIBS -o svdman svdman.o svdtool.o libclasvd.a libF77.a -lm
+
+
+ 
+
+
+
+
+
+</ul>
+            <p>
+            </p>
+Platforms:
+<p>
+            </p>
+            <ul>RedHatLinux version 7.0<br>
+                <p>
+                </p>
+Compilers:
+<p>
+                </p>
+                <ul>gcc version 2.96<br>
+                </ul>
+                <p>
+                </p>RedHatLinux version 6.1<br>
+                <p>
+                </p>
+Compilers:
+<p>
+                </p>
+                <ul>egcs version 1.1.2<br>
+                </ul>
+                <p>
+                </p>
+            </ul>
+        </ul>
+    </BODY>
+</HTML>
