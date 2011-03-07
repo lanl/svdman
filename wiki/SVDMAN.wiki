@@ -19,12 +19,3 @@ And a paper generally describing application of SVD and PCA to microarray data:
 Please follow this link to the software documentation:
 
 http://public.ds.lanl.gov/mewall/svdman/svdman-0.9b/doc/svdman.html
-
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
